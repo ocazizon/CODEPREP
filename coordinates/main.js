@@ -11,6 +11,7 @@ const target = document.querySelector('.target')
 const tag = document.querySelector('.tag')
 const b1 = document.querySelector('.b1')
 const scorebtn = document.querySelector('.scorebtn')
+const box1 = document.querySelector('.box')
 
 let ccount = 0;
 b1.addEventListener('click', () => {
@@ -43,19 +44,35 @@ let pixY = Math.floor(Math.random() * window.innerHeight)
 let pixX = Math.floor(Math.random() * window.innerwidth)
 
 console.log(pixY)
-console.log(reg)
-b1.addEventListener('click', () =>{
-    
+
+
+let timecount = function (evt) { 
+    t = setTimeout(() => {
+    pixX = Math.floor(Math.random()*box1.clientWidth)
+    pixY = Math.floor(Math.random()*box1.clientHeight)
+    b1.style.transform = `translate(${pixX}px, ${pixY}px)`
+    console.log(pixX,pixY)
+    }, 3000);
+}
+// window.setTimeout( ,3000)
+
+let transball = function (evt) {
     pixX = Math.floor(Math.random() * box1.clientWidth)
     pixY = Math.floor(Math.random() * box1.clientHeight)
     b1.style.transform = `translate(${pixX}px, ${pixY}px)`
-    
-})
-const box1 = document.querySelector('.box')
+    window.clearTimeout(t);
+    }
+
+b1.addEventListener('click', transball)
+box1.addEventListener('click', timecount)
+
+
+
+
 
 
 //공이 랜덤위치에 나왔다가 
-//3초 후에 사라진다.
+//잘못클릿 했을대3초 후에 위치가 변동된다.
 //start 버튼을 누르면 시작한다.
 //total score 는 누적이 된다.
 //라운드 2번째까지 생성해본다.

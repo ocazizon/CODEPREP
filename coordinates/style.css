@@ -34,7 +34,9 @@ body {
     position: absolute;
     width: 70%;
     height: 70%;
-    background-color: azure;
+    /* background-color: azure; */
+    border-color: beige;
+    border: 1px solid rgb(40, 65, 85);
 }
 /* .start {
       top: 50%;
